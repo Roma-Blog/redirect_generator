@@ -79,7 +79,7 @@ def generate_from_csv(csv_file, output_file=None, default_domain='kipvalve.ru'):
             row = [cell.strip() for cell in row if cell.strip()]
             
             if len(row) < 2:
-                print(f"⚠️ Строка {row_num}: недостаточно данных, пропущена")
+                print(f"Строка {row_num}: недостаточно данных, пропущена")
                 continue
             
             # Последний столбец - целевой URL
@@ -93,7 +93,7 @@ def generate_from_csv(csv_file, output_file=None, default_domain='kipvalve.ru'):
                 _, source_path = parse_source_url(source_url)
                 
                 if source_path in seen_paths:
-                    print(f"ℹ️ Строка {row_num}: дубликат пути '{source_path}' пропущен")
+                    print(f"Строка {row_num}: дубликат пути '{source_path}' пропущен")
                     continue
                 
                 seen_paths.add(source_path)
@@ -123,7 +123,7 @@ def generate_from_csv(csv_file, output_file=None, default_domain='kipvalve.ru'):
     if output_file:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write('\n'.join(output))
-        print(f"✅ Сохранено {len(rules)} правил в {output_file}")
+        print(f"Сохранено {len(rules)} правил в {output_file}")
     else:
         print('\n'.join(output))
     
@@ -166,7 +166,7 @@ RewriteRule ^{escaped_path}/?$ {target} [R=301,L]"""
     if output_file:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(output)
-        print(f"✅ Сохранено в {output_file}")
+        print(f"Сохранено в {output_file}")
     else:
         print(output)
 
